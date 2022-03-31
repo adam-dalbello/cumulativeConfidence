@@ -1,5 +1,10 @@
 # cumulativeConfidence Function
 Function for assessing impact and presence of chance between AB test variant measures.
+<br>
+<br>
+More ducumentation to come.
+<br>
+<br>
 
 ### Languages and Tools
 <div>
