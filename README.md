@@ -16,6 +16,7 @@ Function for assessing impact and presence of chance between AB test variant mea
 <br>
 <br>
 
+# Function
 ```r
 cumulativeConfidence <- function(.data, date, variants, metric, z_value = 1.39) {
   require(dplyr)
