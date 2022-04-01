@@ -36,9 +36,7 @@ cumulativeConfidence <- function(.data, date, variants, metric, z_value = 1.39) 
   require(dplyr)
   require(rlang)
 
-.data <- as_tibble(.data)
-
-.data %>%
+data_table <- .data %>%
   mutate(date = as.Date( {{ date }} )  ) %>%
   arrange( {{ variants }}, date) %>%
   group_by( {{ variants }} ) %>%
@@ -58,7 +56,14 @@ cumulativeConfidence <- function(.data, date, variants, metric, z_value = 1.39) 
     cumulative_ci_lower = max(cumulative_mean) - (z_value * (sqrt(max(cumulative_squared_errors) / max(cumulative_observations)) / sqrt(max(cumulative_observations))) ),
     cumulative_mean = max(cumulative_mean),
     cumulative_ci_upper = max(cumulative_mean) + (z_value * (sqrt(max(cumulative_squared_errors) / max(cumulative_observations)) / sqrt(max(cumulative_observations))) )
-  ) %>%
+  )
+
+data_table %>% 
+  group_by( {{ variants }} ) %>% 
+  filter(date == max(date)) %>%
+  print()
+
+data_table %>% 
   ggplot2::ggplot(
     aes(
       date,
@@ -84,7 +89,19 @@ cumulativeConfidence <- function(.data, date, variants, metric, z_value = 1.39) 
     begin = 0,
     end = 0.6
   ) +
-  theme(panel.background = element_blank())
+  theme(panel.background = element_rect(fill = 'grey94'))
 
 }
 ```
+<br>
+<br>
+
+Example output
+```r
+#   Prototype date       cumulative_ci_lower cumulative_mean cumulative_ci_upper
+#   <chr>     <date>                   <dbl>           <dbl>               <dbl>
+# 1 proto_A   2018-07-29                17.3            17.4                17.4
+# 2 proto_B   2018-07-29                12.5            12.6                12.6
+```
+![cumulative confidence intervals white](https://user-images.githubusercontent.com/25012294/161318829-d2679d24-3e07-47e8-9ee8-948f45790282.png)
+
