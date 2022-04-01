@@ -24,7 +24,7 @@ More ducumentation to come.
 ### Arguments
 | Argument | Description |
 | --- | --- |
-| ```.data``` | A data frame, tibble, named matrix, or data.table that must be in the machine readable long format. |
+| ```.data``` | A data frame, tibble, named matrix, or data.table that must be in machine readable long format. |
 | ```date``` | Date column, which must be in the ISO 8601 format, or convertible to the format. Internally the function will attempt to cast the date to YYYY-MM-DD. |
 | ```variants``` | The column/variable indicating whether the observation, or row, contains information for the A or B variant. |
 | ```metric``` | The success metric that the means of will be used to estimate impact and presence of chance. |
