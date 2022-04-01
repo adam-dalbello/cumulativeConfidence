@@ -24,11 +24,11 @@ More ducumentation to come.
 ### Arguments
 | Argument | Description |
 | --- | --- |
-| ```.data``` | A data frame, tibble, named matrix, or data.table that must be in machine readable long format. |
-| ```date``` | Date column, which must be in the ISO 8601 format, or convertible to the format. Internally the function will attempt to cast the date to YYYY-MM-DD. |
-| ```variants``` | The column/variable indicating whether the observation, or row, contains information for the A or B variant. |
-| ```metric``` | The success metric that the means of will be used to estimate impact and presence of chance. |
-| ```z_value``` | The Z value to determine which confidence level will be used. Defaulted to 1.39 to estimate at the 95% confidence level. |
+| `.data` | A data frame, tibble, named matrix, or data.table that must be in machine readable long format. |
+| `date` | Date column, which must be in the ISO 8601 format, or convertible to the format. Internally the function will attempt to cast the date to YYYY-MM-DD. |
+| `variants` | The column/variable indicating whether the observation, or row, contains information for the A or B variant. |
+| `metric` | The success metric that the means of will be used to estimate impact and presence of chance. |
+| `z_value` | The Z value to determine which confidence level will be used. Defaulted to 1.39 to estimate at the 95% confidence level. |
 
 # Function
 ```r
