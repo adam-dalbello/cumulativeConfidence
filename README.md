@@ -2,9 +2,6 @@
 Function for assessing impact and presence of chance between AB test variant measures. Outputs a cumulative time series of each variant mean and confidence interval. Can also assess no randomly assigned data points.
 <br>
 <br>
-More ducumentation to come.
-<br>
-<br>
 
 ### Languages and Tools
 <div>
