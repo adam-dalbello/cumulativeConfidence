@@ -42,13 +42,13 @@ data_table <- .data %>%
     cumulative_mean = cummean( {{ metric }} ),
     cumulative_observations = cumsum(observations)
   ) %>%
-  group_by( {{variants }}, date) %>%
+  group_by( {{ variants }}, date) %>%
   mutate(
     cumulative_mean = last(cumulative_mean),
     cumulative_observations = max(cumulative_observations),
     cumulative_squared_errors = cumsum(as.numeric( {{ metric }} - cumulative_mean)^2)
   ) %>%
-  group_by( {{variants }}, date) %>%
+  group_by( {{ variants }}, date) %>%
   summarise(
     cumulative_ci_lower = max(cumulative_mean) - (z_value * (sqrt(max(cumulative_squared_errors) / max(cumulative_observations)) / sqrt(max(cumulative_observations))) ),
     cumulative_mean = max(cumulative_mean),
