@@ -32,6 +32,7 @@ Function for assessing impact and presence of chance between AB test variant mea
 cumulativeConfidence <- function(.data, date, variants, metric, z_value = 1.39) {
   require(dplyr)
   require(rlang)
+  require(extrafont)
 
 data_table <- .data %>%
   mutate(date = as.Date( {{ date }} )  ) %>%
@@ -88,7 +89,7 @@ data_table %>%
   ) +
   theme(
     panel.background = element_rect(fill = 'grey94'),
-    text = element_text(family = extrafont::fonts()[fonts() == 'Segoe UI'])
+    text = element_text(family = 'Segoe UI')
   )
 
 }
