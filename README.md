@@ -42,13 +42,13 @@ data_table <- .data %>%
     cumulative_mean = cummean( {{ metric }} ),
     cumulative_observations = cumsum(observations)
   ) %>%
-  group_by( {{ variants }}, date) %>%
+  group_by( {{variants }}, date) %>%
   mutate(
     cumulative_mean = last(cumulative_mean),
     cumulative_observations = max(cumulative_observations),
     cumulative_squared_errors = cumsum(as.numeric( {{ metric }} - cumulative_mean)^2)
   ) %>%
-  group_by( {{ variants }}, date) %>%
+  group_by( {{variants }}, date) %>%
   summarise(
     cumulative_ci_lower = max(cumulative_mean) - (z_value * (sqrt(max(cumulative_squared_errors) / max(cumulative_observations)) / sqrt(max(cumulative_observations))) ),
     cumulative_mean = max(cumulative_mean),
@@ -86,7 +86,10 @@ data_table %>%
     begin = 0,
     end = 0.6
   ) +
-  theme(panel.background = element_rect(fill = 'grey94'))
+  theme(
+    panel.background = element_rect(fill = 'grey94'),
+    text = element_text(family = extrafont::fonts()[fonts() == 'Segoe UI'])
+  )
 
 }
 ```
@@ -100,5 +103,6 @@ Example output
 # 1 proto_A   2018-07-29                17.3            17.4                17.4
 # 2 proto_B   2018-07-29                12.5            12.6                12.6
 ```
-![cumulative confidence intervals white](https://user-images.githubusercontent.com/25012294/161318829-d2679d24-3e07-47e8-9ee8-948f45790282.png)
+![cumulative confidence intervals white](https://user-images.githubusercontent.com/25012294/161421685-414edd79-775d-48fd-92f3-35d530d60049.png)
+
 
