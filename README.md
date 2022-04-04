@@ -56,9 +56,11 @@ data_table <- .data %>%
     cumulative_ci_upper = max(cumulative_mean) + (z_value * (sqrt(max(cumulative_squared_errors) / max(cumulative_observations)) / sqrt(max(cumulative_observations))) )
   )
 
+print('Information for the latest date')
 data_table %>% 
   group_by( {{ variants }} ) %>% 
   filter(date == max(date)) %>%
+  rename(!!paste0(as_name(enquo(metric)), '_', names(.)[4]) := names(.)[4]) %>% 
   print()
 
 data_table %>% 
@@ -105,6 +107,3 @@ Example output
 # 2 proto_B   2018-07-29                12.5            12.6                12.6
 ```
 ![cumulative confidence intervals white](https://user-images.githubusercontent.com/25012294/161422002-65eff502-1a39-4bea-b726-02535c43c11d.png)
-
-
-
