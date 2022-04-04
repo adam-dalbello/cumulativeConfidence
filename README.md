@@ -101,9 +101,9 @@ data_table %>%
 
 Example output
 ```r
-#   Prototype date       cumulative_ci_lower cumulative_mean cumulative_ci_upper
-#   <chr>     <date>                   <dbl>           <dbl>               <dbl>
-# 1 proto_A   2018-07-29                17.3            17.4                17.4
-# 2 proto_B   2018-07-29                12.5            12.6                12.6
+#   Prototype date       cumulative_ci_lower sessionLength_cumulative_mean cumulative_ci_upper
+#   <chr>     <date>                   <dbl>                         <dbl>               <dbl>
+# 1 proto_A   2018-07-29                17.3                          17.4                17.4
+# 2 proto_B   2018-07-29                12.5                          12.6                12.6
 ```
 ![cumulative confidence intervals white](https://user-images.githubusercontent.com/25012294/161422002-65eff502-1a39-4bea-b726-02535c43c11d.png)
