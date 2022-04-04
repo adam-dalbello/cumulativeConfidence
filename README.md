@@ -103,7 +103,7 @@ data_table %>%
 
 Example output
 ```r
-[1] "Information for the latest date"
+#> [1] "Information for the latest date"
 #> # A tibble: 2 x 5
 #> # Groups:   Prototype [2]
 #>   Prototype date       cumulative_ci_lower sessionLength_cumulative_mean cumulative_ci_upper
