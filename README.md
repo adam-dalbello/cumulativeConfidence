@@ -103,10 +103,13 @@ data_table %>%
 
 Example output
 ```r
-#   Prototype date       cumulative_ci_lower sessionLength_cumulative_mean cumulative_ci_upper
-#   <chr>     <date>                   <dbl>                         <dbl>               <dbl>
-# 1 proto_A   2018-07-29                17.3                          17.4                17.4
-# 2 proto_B   2018-07-29                12.5                          12.6                12.6
+[1] "Information for the latest date"
+#> # A tibble: 2 x 5
+#> # Groups:   Prototype [2]
+#>   Prototype date       cumulative_ci_lower sessionLength_cumulative_mean cumulative_ci_upper
+#>   <chr>     <date>                   <dbl>                         <dbl>               <dbl>
+#> 1 proto_A   2018-07-29                17.3                          17.4                17.4
+#> 2 proto_B   2018-07-29                12.5                          12.6                12.6
 ```
 ![cumulative confidence intervals white](https://user-images.githubusercontent.com/25012294/161582039-097c4f00-413f-41d9-b5d6-8e89f0697bb1.png)
 
