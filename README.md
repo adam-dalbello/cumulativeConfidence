@@ -72,14 +72,16 @@ data_table %>%
       col = {{ variants }}
     )
   ) +
-  geom_line(alpha = 0.5) +
-  geom_errorbar(
+  geom_line(alpha = 0.2) +
+  geom_point(alpha = 0.2) +
+  geom_linerange(
     aes(
       ymin = cumulative_ci_lower,
       ymax = cumulative_ci_upper
     ),
-    width = 0.15
-  ) +
+    size = 5,
+    alpha = 0.5
+    ) +
   xlab("Date") +
   ylab(paste0(as_label(enquo(metric)), ' mean')) +
   ggtitle(paste0('Cumulative Mean ', as_label(enquo(metric)), ': 83.4% Confidence Intervals')) +
@@ -106,4 +108,5 @@ Example output
 # 1 proto_A   2018-07-29                17.3                          17.4                17.4
 # 2 proto_B   2018-07-29                12.5                          12.6                12.6
 ```
-![cumulative confidence intervals white](https://user-images.githubusercontent.com/25012294/161422002-65eff502-1a39-4bea-b726-02535c43c11d.png)
+![cumulative confidence intervals white](https://user-images.githubusercontent.com/25012294/161582039-097c4f00-413f-41d9-b5d6-8e89f0697bb1.png)
+
