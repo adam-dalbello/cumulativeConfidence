@@ -28,8 +28,7 @@ Function for assessing impact and presence of chance between AB test variant mea
 | `z_value` | The Z value to determine which confidence level will be used. Defaulted to 1.39 to estimate at the 95% confidence level. |
 
 # Function
-```r
-cumulativeConfidence <- function(.data, date, variants, metric, z_value = 1.39) {
+```rcumulativeConfidence <- function(.data, date, variants, metric, z_value = 1.39) {
   require(dplyr)
   require(rlang)
   require(extrafont)
@@ -72,16 +71,23 @@ data_table %>%
       col = {{ variants }}
     )
   ) +
+  geom_errorbar(
+    aes(
+      ymin = cumulative_ci_lower,
+      ymax = cumulative_ci_upper
+    ),
+    col = 'black',
+    alpha = 0.5,
+    width = 0.35
+  ) +
   geom_line(alpha = 0.2) +
-  geom_point(alpha = 0.2) +
   geom_linerange(
     aes(
       ymin = cumulative_ci_lower,
       ymax = cumulative_ci_upper
     ),
-    size = 5,
-    alpha = 0.5
-    ) +
+    size = 5
+  ) +
   xlab("Date") +
   ylab(paste0(as_label(enquo(metric)), ' mean')) +
   ggtitle(paste0('Cumulative Mean ', as_label(enquo(metric)), ': 83.4% Confidence Intervals')) +
@@ -111,5 +117,4 @@ Example output
 #> 1 proto_A   2018-07-29                17.3                          17.4                17.4
 #> 2 proto_B   2018-07-29                12.5                          12.6                12.6
 ```
-![cumulative confidence intervals white](https://user-images.githubusercontent.com/25012294/161582039-097c4f00-413f-41d9-b5d6-8e89f0697bb1.png)
-
+![cumulative confidence intervals white](https://user-images.githubusercontent.com/25012294/161769355-9ea7b7e5-2569-464e-b9b5-784e0a6e5c26.png)
