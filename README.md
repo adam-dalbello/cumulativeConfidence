@@ -28,7 +28,8 @@ Function for assessing impact and presence of chance between AB test variant mea
 | `z_value` | The Z value to determine which confidence level will be used. Defaulted to 1.39 to estimate at the 95% confidence level. |
 
 # Function
-```rcumulativeConfidence <- function(.data, date, variants, metric, z_value = 1.39) {
+```r
+rcumulativeConfidence <- function(.data, date, variants, metric, z_value = 1.39) {
   require(dplyr)
   require(rlang)
   require(extrafont)
