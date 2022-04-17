@@ -17,8 +17,9 @@ Function for assessing impact and presence of chance between AB test variant mea
 </div>
 <br>
 <br>
+<br>
 
-### Arguments
+# Arguments
 | Argument | Description |
 | --- | --- |
 | `.data` | A data frame, tibble, named matrix, or data.table that must be in machine readable long format. |
