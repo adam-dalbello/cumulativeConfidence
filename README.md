@@ -1,4 +1,4 @@
-# cumulativeConfidence Function
+# cumulativeConfidence
 Function for assessing impact and presence of chance between AB test variant measures. Outputs a cumulative time series of each variant mean and confidence interval. Can also assess non randomly assigned variants.
 <br>
 <br>
