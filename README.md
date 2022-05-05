@@ -107,8 +107,8 @@ data_table %>%
 }
 ```
 <br>
-<br>
-Example output
+
+Output
 ```r
 #> [1] "Information for the latest date"
 #> # A tibble: 2 x 5
