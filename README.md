@@ -108,7 +108,6 @@ data_table %>%
 ```
 <br>
 <br>
-
 Example output
 ```r
 #> [1] "Information for the latest date"
